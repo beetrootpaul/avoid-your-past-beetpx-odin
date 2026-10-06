@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Avoid Your Past</title>
+    <style>
+      body {
+        margin: 0;
+        height: 100dvh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* The canvas takes the rest of the window. Its size must not depend on
+         its content: BeetPx resizes its backing store to match that size. */
+      #beetpx_canvas {
+        flex: 1 1 0;
+        min-height: 0;
+        width: 100%;
+        box-sizing: border-box;
+        border: 1px solid orange;
+        image-rendering: pixelated;
+      }
+
+      .critical_error {
+        border: 1px solid red;
+        padding: 1em;
+        color: red;
+        font-weight: 700;
+
+        p {
+          margin: 0.4em 0;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <p>Open the browser dev tools console to see output.</p>
+    <canvas id="beetpx_canvas"></canvas>
+    <script src="odin.js"></script>
+    <script src="beetpx.js"></script>
+    <script>
+      const wasmFileName = "beetpx_game.wasm";
+      window.beetpx.runWasm(wasmFileName).catch((err) => {
+        console.error(err);
+        document.body.insertAdjacentHTML(
+          "afterbegin",
+          `
+				    <div class="critical_error">
+					    <p>Failed to load '${wasmFileName}'.</p>
+              <p>See the error in the dev tools console.</p>
+            </div>
+			    `.trim(),
+        );
+      });
+    </script>
+  </body>
+</html>

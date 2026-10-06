@@ -1,1 +1,12 @@
+# TypeScript version of the game as a reference
 /ts_version/
+
+# Odin build output
+/build/
+
+# Claude Code (AI)
+.claude/*
+!.claude/settings.json
+
+# macOS files
+.DS_Store
