@@ -1,0 +1,34 @@
+{
+  "name": "avoid-your-past-beetpx",
+  "version": "0.0.0",
+  "author": "Beetroot Paul",
+  "license": "MIT",
+  "private": true,
+  "description": "A snake-like BeetPx game where each collected coin brings a harmful memory of your past steps.",
+  "homepage": "https://github.com/beetrootpaul/avoid-your-past-beetpx#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beetrootpaul/avoid-your-past-beetpx.git"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "prepare": "husky",
+    "start": "beetpx dev --open --htmlTitle \"[dev] Avoid Your Past\"",
+    "build": "npm run tsc && beetpx build --htmlTitle \"Avoid Your Past\"",
+    "prod": "npm run build && beetpx preview --open",
+    "itch": "npm run build && beetpx zip",
+    "format": "prettier --ignore-path .gitignore --write src/ README.md",
+    "tsc": "tsc",
+    "tsc:watch": "tsc --watch",
+    "checkForDepedencyUpdates": "npx npm-check-updates"
+  },
+  "devDependencies": {
+    "@beetpx/beetpx": "0.56.1",
+    "husky": "9.1.7",
+    "prettier": "3.5.3",
+    "prettier-plugin-organize-imports": "4.1.0",
+    "typescript": "5.8.2"
+  }
+}
