@@ -21,11 +21,18 @@
     "[shellscript]": {
       "editor.rulers": [80],
     },
+    "[markdown]": {
+      "editor.rulers": [80],
+    },
     "files.exclude": {
       ".vscode": true,
       "**/.claude": true,
       "**/build": true
-    }
+    },
+    "workbench.colorCustomizations": {
+      "titleBar.activeBackground": "#2a5132",
+      "titleBar.inactiveBackground": "#1e3422",
+    },
   },
   "extensions": {
     "recommendations": ["danielgavin.ols"],
