@@ -14,11 +14,19 @@ That being said, a very important rule: you do **not** modify the repo history o
 
 User is the sole reposnisble person for managing the commits, switching between jj changes/revisions, pushing the changes to `origin`, etc. Users wants a complete control over the VCS.
 
+The one exception is Claude Code on the web, i.e. when the `CLAUDE_CODE_REMOTE` env var is `true`. There, commit your work in small steps and push it to your own `claude/...` branch. Never push to any other branch, and never rewrite history that is already pushed.
+
+If you ever write a commit message (e.g. when the user allows you to commit), look at the existing ones first and follow their convention, e.g. how short they are. Also, end it with an `Assisted-by: LLM (<model>)` trailer, where `<model>` is the exact ID of the model you run as, e.g. `Assisted-by: LLM (claude-opus-5-5)`. Do not add `Co-Authored-By:` or `Claude-Session:` lines.
+
 ## Repo layout and scripts
 
 - The game's code is the single Odin package in `./src/`.
 - BeetPx is not part of this repo. It is referenced as the `beetpx` collection from `../beetpx-odin/beetpx/` (see `ols.json` and the scripts).
 - `./scripts/check.sh` checks the game for every target (use it to verify changes), `./scripts/format.sh` formats it with `odinfmt` (config in `odinfmt.json`), `./scripts/run.sh <target>` runs it. See `README.md` for details.
+
+## Code comments
+
+Keep comments short. Look at other comments in the code and mimic their style.
 
 ## Odin programming langauge
 
