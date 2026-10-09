@@ -19,7 +19,7 @@ export class Game {
 
       this.#gameState = new GameStateSplash();
     });
-
+  
     $x.setOnUpdate(() => {
       this.#gameState = this.#gameState?.update();
     });

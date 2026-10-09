@@ -1,22 +1,38 @@
-package main
+package ayp
 
-import "beetpx:bpxd"
 import "beetpx:bpx"
+import "beetpx:bpxd"
 
-MAX_R :: 255
-SPEED :: 4
-
-color: bpx.Rgb = {0, 128, 128}
+@(private = "file")
+_screen: Screen
 
 main :: proc() {
-	bpx.set_on_update(on_update)
-	bpx.set_on_draw(on_draw)
+	_screen = screen_splash_enter()
+
+	bpx.set_on_update(_on_update)
+	bpx.set_on_draw(_on_draw)
 	bpx.start(canvas_size = .Square_128, tick_rate = .Hz_30)
 }
 
-on_update :: proc() {
+@(private = "file")
+_on_update :: proc() {
+	switch &s in _screen {
+	case Screen_Splash:
+		if (screen_splash_update(&s)) {
+			_screen = screen_start_enter()
+		}
+	case Screen_Start:
+	}
 }
 
-on_draw :: proc() {
+@(private = "file")
+_on_draw :: proc() {
 	bpxd.clear_canvas(bpx.p_pico8_black)
+
+	switch _ in _screen {
+	case Screen_Splash:
+		screen_splash_draw()
+	case Screen_Start:
+		screen_start_draw()
+	}
 }

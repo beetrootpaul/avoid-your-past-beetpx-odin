@@ -24,6 +24,9 @@
     "[markdown]": {
       "editor.rulers": [80],
     },
+    "[typescript]": {
+      "editor.rulers": [80],
+    },
     "files.exclude": {
       ".vscode": true,
       "**/.claude": true,
