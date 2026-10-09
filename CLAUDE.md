@@ -14,6 +14,8 @@ That being said, a very important rule: you do **not** modify the repo history o
 
 User is the sole reposnisble person for managing the commits, switching between jj changes/revisions, pushing the changes to `origin`, etc. Users wants a complete control over the VCS.
 
+The one exception is Claude Code on the web, i.e. when the `CLAUDE_CODE_REMOTE` env var is `true`. There, commit your work in small steps and push it to your own `claude/...` branch. Never push to any other branch, and never rewrite history that is already pushed.
+
 ## Repo layout and scripts
 
 - The game's code is the single Odin package in `./src/`.
