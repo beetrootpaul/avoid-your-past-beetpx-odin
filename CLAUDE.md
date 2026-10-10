@@ -14,6 +14,8 @@ That being said, a very important rule: you do **not** modify the repo history o
 
 User is the sole reposnisble person for managing the commits, switching between jj changes/revisions, pushing the changes to `origin`, etc. Users wants a complete control over the VCS.
 
+If you ever write a commit message (e.g. when the user allows you to commit), end it with an `Assisted-by:` trailer naming the tool, e.g. `Assisted-by: Claude Code`. Do not add `Co-Authored-By:` or `Claude-Session:` lines.
+
 ## Repo layout and scripts
 
 - The game's code is the single Odin package in `./src/`.
