@@ -14,7 +14,7 @@ That being said, a very important rule: you do **not** modify the repo history o
 
 User is the sole reposnisble person for managing the commits, switching between jj changes/revisions, pushing the changes to `origin`, etc. Users wants a complete control over the VCS.
 
-If you ever write a commit message (e.g. when the user allows you to commit), end it with an `Assisted-By: LLM (<model>)` trailer, where `<model>` is the exact ID of the model you run as, e.g. `Assisted-By: LLM (claude-opus-5-5)`. Do not add `Co-Authored-By:` or `Claude-Session:` lines.
+If you ever write a commit message (e.g. when the user allows you to commit), end it with an `Assisted-by: LLM (<model>)` trailer, where `<model>` is the exact ID of the model you run as, e.g. `Assisted-by: LLM (claude-opus-5-5)`. Do not add `Co-Authored-By:` or `Claude-Session:` lines.
 
 ## Repo layout and scripts
 
