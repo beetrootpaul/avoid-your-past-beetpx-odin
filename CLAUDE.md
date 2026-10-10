@@ -14,11 +14,17 @@ That being said, a very important rule: you do **not** modify the repo history o
 
 User is the sole reposnisble person for managing the commits, switching between jj changes/revisions, pushing the changes to `origin`, etc. Users wants a complete control over the VCS.
 
+When you do write a commit message, look at the existing ones first and follow their convention, e.g. how short they are.
+
 ## Repo layout and scripts
 
 - The game's code is the single Odin package in `./src/`.
 - BeetPx is not part of this repo. It is referenced as the `beetpx` collection from `../beetpx-odin/beetpx/` (see `ols.json` and the scripts).
 - `./scripts/check.sh` checks the game for every target (use it to verify changes), `./scripts/format.sh` formats it with `odinfmt` (config in `odinfmt.json`), `./scripts/run.sh <target>` runs it. See `README.md` for details.
+
+## Code comments
+
+Keep comments short. Look at other comments in the code and mimic their style.
 
 ## Odin programming langauge
 
