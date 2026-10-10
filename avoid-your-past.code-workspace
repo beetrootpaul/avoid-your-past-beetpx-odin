@@ -30,6 +30,7 @@
       "**/build": true
     },
     "workbench.colorCustomizations": {
+      "statusBar.background": "#2a5132",
       "titleBar.activeBackground": "#2a5132",
       "titleBar.inactiveBackground": "#1e3422",
     },
