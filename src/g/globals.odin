@@ -1,4 +1,4 @@
-package globals
+package ayp_g
 
 import "beetpx:bpx"
 

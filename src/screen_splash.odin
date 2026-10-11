@@ -14,13 +14,14 @@ screen_splash_enter :: proc() -> Screen_Splash {
 	}
 }
 
-// Returns `true` if it's high time for screen transition.
-screen_splash_update :: proc(s: ^Screen_Splash) -> bool {
+screen_splash_update :: proc(s: ^Screen_Splash) -> Maybe(Screen) {
 	if gui.sash_has_collapsed(s._sash) {
-		return true
+		return screen_start_enter()
 	}
+
 	gui.sash_update(&s._sash)
-	return false
+	
+	return nil
 }
 
 screen_splash_draw :: proc() {

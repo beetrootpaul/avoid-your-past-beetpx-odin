@@ -1,11 +1,11 @@
-package gui
+package ayp_gui
 
 import "../g"
 import "beetpx:bpx"
 import "beetpx:bpxd"
 
 @(private = "file")
-_H_MAX :: 30
+_H_MAX :: 30.0
 
 Sash :: struct {
 	_ttl: int,

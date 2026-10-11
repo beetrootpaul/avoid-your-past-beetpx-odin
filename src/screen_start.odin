@@ -9,6 +9,10 @@ screen_start_enter :: proc() -> Screen_Start {
 	return {}
 }
 
+screen_start_update :: proc() -> Maybe(Screen) {
+	return nil
+}
+
 screen_start_draw :: proc() {
 	bpxd.rect_filled(g.GAME_AREA_XY, g.GAME_AREA_SIZE, g.COLOR_BG_MODE_NORMAL)
 }

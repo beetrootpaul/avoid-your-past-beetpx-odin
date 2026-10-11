@@ -4,10 +4,10 @@ import "beetpx:bpx"
 import "beetpx:bpxd"
 
 @(private = "file")
-_screen: Screen
+_curr_screen: Screen
 
 main :: proc() {
-	_screen = screen_splash_enter()
+	_curr_screen = screen_splash_enter()
 
 	bpx.set_on_update(_on_update)
 	bpx.set_on_draw(_on_draw)
@@ -16,23 +16,26 @@ main :: proc() {
 
 @(private = "file")
 _on_update :: proc() {
-	switch &s in _screen {
+	next_screen: Maybe(Screen)
+	switch &s in _curr_screen {
 	case Screen_Splash:
-		if (screen_splash_update(&s)) {
-			_screen = screen_start_enter()
-		}
+		next_screen = screen_splash_update(&s)
 	case Screen_Start:
+		next_screen = screen_start_update()
 	}
+	_curr_screen = next_screen.? or_else _curr_screen
 }
 
 @(private = "file")
 _on_draw :: proc() {
 	bpxd.clear_canvas(bpx.p_pico8_black)
 
-	switch _ in _screen {
+	switch _ in _curr_screen {
 	case Screen_Splash:
 		screen_splash_draw()
 	case Screen_Start:
 		screen_start_draw()
 	}
 }
+
+// TODO: Introduce tracking memory allocator?

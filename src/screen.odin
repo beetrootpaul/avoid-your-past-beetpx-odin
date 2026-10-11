@@ -1,6 +1,6 @@
 package ayp
 
-Screen :: union {
+Screen :: union #no_nil {
 	Screen_Splash,
 	Screen_Start,
 }
