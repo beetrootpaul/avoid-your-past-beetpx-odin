@@ -30,9 +30,9 @@ _on_update :: proc() {
 _on_draw :: proc() {
 	bpxd.clear_canvas(bpx.p_pico8_black)
 
-	switch _ in _curr_screen {
+	switch s in _curr_screen {
 	case Screen_Splash:
-		screen_splash_draw()
+		screen_splash_draw(s)
 	case Screen_Start:
 		screen_start_draw()
 	}

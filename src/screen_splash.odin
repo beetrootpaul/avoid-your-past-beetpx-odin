@@ -18,13 +18,10 @@ screen_splash_update :: proc(s: ^Screen_Splash) -> Maybe(Screen) {
 	if gui.sash_has_collapsed(s._sash) {
 		return screen_start_enter()
 	}
-
-	gui.sash_update(&s._sash)
-	
 	return nil
 }
 
-screen_splash_draw :: proc() {
+screen_splash_draw :: proc(s: Screen_Splash) {
 	bpxd.rect_filled({0, 0}, g.SCREEN_SIZE, g.COLOR_BG_MODE_NORMAL)
-	gui.sash_draw()
+	gui.sash_draw(s._sash)
 }
