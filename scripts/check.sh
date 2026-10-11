@@ -20,6 +20,29 @@ targets=(
 )
 
 run_check() {
+	# Game's own packages, comma-separated. This way, we can limit the vetting
+	# to the game itself, without vetting against 3rd party code (e.g. BeetPX).
+	local game_packages
+	#   1. `grep` prints the `package <name>` line of every `.odin` file in
+	#      `./src`, without the file names.
+	#   2. `awk` keeps the 2nd word of each line, i.e. the package name.
+	#   3. `sort` orders the names and drops the duplicates, since every file
+	#      of a package declares it.
+	#   4. `paste` joins the names into a single line, separated by commas.
+	game_packages="$(
+		grep \
+			--recursive \
+			--no-filename \
+			--include='*.odin' '^package ' ./src |
+			awk '{ print $2 }' |
+			sort --unique |
+			paste -sd, -
+	)" || true
+	if [[ -z "${game_packages}" ]]; then
+		echo "No Odin packages found in './src'." >&2
+		return 1
+	fi
+
 	for target in "${targets[@]}"; do
 		echo "Checking for '${target}' ..."
 		# `-thread-count:1` works around an intermittent segmentation
@@ -34,11 +57,12 @@ run_check() {
 			-collection:beetpx=../beetpx-odin/beetpx/ \
 			-disable-non-constant-globals \
 			-strict-style \
+			-strict-style-packages:"${game_packages}" \
 			-thread-count:1 \
 			-vet \
 			-vet-cast \
 			-vet-tabs \
-			-vet-packages:main \
+			-vet-packages:"${game_packages}" \
 			-vet-using-param \
 			-vet-using-stmt \
 			-warnings-as-errors \

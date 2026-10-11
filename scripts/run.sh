@@ -46,14 +46,6 @@ fi
 odin_flags=(
 	-collection:beetpx=../beetpx-odin/beetpx/
 	-disable-non-constant-globals
-	-strict-style
-	-vet
-	-vet-cast
-	-vet-tabs
-	-vet-packages:main
-	-vet-using-param
-	-vet-using-stmt
-	-warnings-as-errors
 	-target:"${target}"
 )
 
