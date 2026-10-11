@@ -1,5 +1,6 @@
 package main
 
+import "beetpx:bpxd"
 import "beetpx:bpx"
 
 MAX_R :: 255
@@ -17,5 +18,5 @@ on_update :: proc() {
 }
 
 on_draw :: proc() {
-	bpx.d_clear_canvas(bpx.p_pico8_black)
+	bpxd.clear_canvas(bpx.p_pico8_black)
 }
