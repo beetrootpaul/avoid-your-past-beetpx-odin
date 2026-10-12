@@ -1,5 +1,6 @@
 package ayp
 
+import "./g"
 import "beetpx:bpx"
 import "beetpx:bpxd"
 
@@ -7,6 +8,8 @@ import "beetpx:bpxd"
 _curr_screen: Screen
 
 main :: proc() {
+	g.spritesheet = bpx.image_from_png(#load("../assets/spritesheet.png"))
+
 	_curr_screen = screen_splash_enter()
 
 	bpx.set_on_update(_on_update)
@@ -34,7 +37,7 @@ _on_draw :: proc() {
 	case Screen_Splash:
 		screen_splash_draw(s)
 	case Screen_Start:
-		screen_start_draw()
+		screen_start_draw(s)
 	}
 }
 

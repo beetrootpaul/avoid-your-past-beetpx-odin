@@ -2,10 +2,15 @@ package ayp_g
 
 import "beetpx:bpx"
 
-SCREEN_SIZE :: bpx.Xy{128, 128}
-GAME_AREA_XY :: bpx.Xy{0, 16}
+SCREEN_SIZE    :: bpx.Xy{128, 128}
+GAME_AREA_XY   :: bpx.Xy{0, 16}
 GAME_AREA_SIZE :: bpx.Xy{SCREEN_SIZE.x, SCREEN_SIZE.y - 16}
+
+SPRITE_SHEET_CELL_SIZE :: bpx.Xy{8, 8}
 
 MUSIC_BEAT_FRAMES :: 16
 
 COLOR_BG_MODE_NORMAL :: bpx.p_pico8_storm
+
+// Decoded in `main`, before the game starts.
+spritesheet: bpx.Image
