@@ -9,6 +9,9 @@ import "beetpx:bpxd"
 @(private = "file")
 _H_MAX :: 30.0
 
+@(private = "file")
+_COLLAPSE_DURATION :: g.MUSIC_BEAT_FRAMES / 4
+
 Sash :: struct {
 	_timer: bpx.Timer,
 }
@@ -21,6 +24,11 @@ sash_make :: proc(duration: u32) -> Sash {
 
 sash_has_collapsed :: proc(s: Sash) -> bool {
 	return bpx.timer_has_finished(s._timer)
+}
+
+// Makes the sash collapse soon, instead of after its full duration.
+sash_collapse :: proc(s: ^Sash) {
+	s._timer = bpx.timer_make(_COLLAPSE_DURATION)
 }
 
 sash_draw :: proc(s: Sash) {
