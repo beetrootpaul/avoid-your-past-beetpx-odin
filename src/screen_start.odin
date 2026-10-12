@@ -1,11 +1,16 @@
 package ayp
 
 import "./g"
+import "beetpx:bpx"
 import "beetpx:bpxd"
 
 Screen_Start :: struct {}
 
 screen_start_enter :: proc() -> Screen_Start {
+	bpx.mute_playback(playback_ids.melody)
+	bpx.mute_playback(playback_ids.mode_no_coins)
+	bpx.mute_playback(playback_ids.mode_no_memories)
+
 	return {}
 }
 

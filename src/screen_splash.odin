@@ -2,6 +2,7 @@ package ayp
 
 import "./g"
 import "./gui"
+import "beetpx:bpx"
 import "beetpx:bpxd"
 
 Screen_Splash :: struct {
@@ -9,6 +10,20 @@ Screen_Splash :: struct {
 }
 
 screen_splash_enter :: proc() -> Screen_Splash {
+	bpx.start_playback_looped(sounds.music_base)
+	playback_ids.melody = bpx.start_playback_looped(
+		sounds.music_melody,
+		mute_on_start = true,
+	)
+	playback_ids.mode_no_coins = bpx.start_playback_looped(
+		sounds.music_mode_no_coins,
+		mute_on_start = true,
+	)
+	playback_ids.mode_no_memories = bpx.start_playback_looped(
+		sounds.music_mode_no_memories,
+		mute_on_start = true,
+	)
+
 	return {
 		_sash = gui.sash_make(8 * g.MUSIC_BEAT_FRAMES),
 	}
