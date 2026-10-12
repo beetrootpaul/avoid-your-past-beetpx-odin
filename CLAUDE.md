@@ -23,6 +23,7 @@ If you ever write a commit message (e.g. when the user allows you to commit), lo
 - The game's code is the single Odin package in `./src/`.
 - BeetPx is not part of this repo. It is referenced as the `beetpx` collection from `../beetpx-odin/beetpx/` (see `ols.json` and the scripts).
 - `./scripts/check.sh` checks the game for every target (use it to verify changes), `./scripts/format.sh` formats it with `odinfmt` (config in `odinfmt.json`), `./scripts/run.sh <target>` runs it. See `README.md` for details.
+- These scripts only forward to the BeetPx CLI (`../beetpx-odin/beetpx/cli/`, an Odin program) through `./scripts/beetpx.sh`. Change the build logic in the CLI, not in the scripts.
 
 ## Code comments
 

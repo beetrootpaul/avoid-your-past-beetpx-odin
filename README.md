@@ -13,7 +13,7 @@
 
 The scripts work from any directory.
 
-BeetPx repo has to be cloned next to this one, as `../beetpx-odin/`.
+BeetPx repo has to be cloned next to this one, as `../beetpx-odin/`. The scripts only forward to the BeetPx CLI, through `./scripts/beetpx.sh`, which builds it with Odin and runs it.
 
 On the web, the script builds the game into `./build/web/` and serves it at <http://127.0.0.1:8000> with Python's built-in HTTP server, so it needs`python3`. On macOS, it builds the game into `./build/macos/` and opens it in a window.
 
