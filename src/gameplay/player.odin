@@ -37,6 +37,14 @@ player_make :: proc() -> Player {
 	}
 }
 
+player_xy_min :: proc(p: Player) -> bpx.Xy {
+	return p._xy - _R
+}
+
+player_xy_max :: proc(p: Player) -> bpx.Xy {
+	return p._xy + _R
+}
+
 player_draw :: proc(p: Player) {
 	sprite_cell := _sprite_cell_for_direction[p._direction]
 	bpxd.sprite(
@@ -45,6 +53,6 @@ player_draw :: proc(p: Player) {
 			sprite_cell * g.SPRITE_SHEET_CELL_SIZE,
 			g.SPRITE_SHEET_CELL_SIZE,
 		),
-		g.GAME_AREA_XY + p._xy - _R,
+		g.GAME_AREA_XY + player_xy_min(p),
 	)
 }
