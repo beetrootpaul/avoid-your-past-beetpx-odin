@@ -5,3 +5,6 @@ cd "$(dirname "${BASH_SOURCE[0]}")/.."
 
 echo "Formatting './src' ..."
 odinfmt -w ./src
+
+echo "Formatting './tests' ..."
+odinfmt -w ./tests

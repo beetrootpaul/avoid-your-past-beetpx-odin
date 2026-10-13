@@ -29,6 +29,15 @@ Add `--watch` to re-run the check every time an `.odin` file in the game or in
 BeetPx changes. Watching requires [watchexec](https://watchexec.github.io/) to
 be installed.
 
+Run the tests (add `--watch` to re-run them on every change):
+
+```sh
+./scripts/test.sh
+```
+
+They run the whole game with no window, on the BeetPx "nil" platform, and
+compare hashes of the canvas at given ticks.
+
 Format the game's code (requires `odinfmt` on your `PATH`):
 
 ```sh

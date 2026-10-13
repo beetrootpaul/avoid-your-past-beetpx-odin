@@ -68,6 +68,31 @@ run_check() {
 			-warnings-as-errors \
 			-target:"${target}" ||
 			return 1
+
+		# Tests are not checked for the web: they import `core:testing`, which
+		# does not compile for `js_wasm32`.
+		if [[ "${target}" == js_wasm32 ]]; then
+			continue
+		fi
+		echo "Checking tests for '${target}' ..."
+		# Tests run on the "nil" platform (see `test.sh`).
+		odin check ./tests \
+			-collection:beetpx=../beetpx-odin/beetpx/ \
+			-define:BEETPX_PLATFORM=nil \
+			-disable-non-constant-globals \
+			-no-entry-point \
+			-strict-style \
+			-strict-style-packages:tests_ayp \
+			-thread-count:1 \
+			-vet \
+			-vet-cast \
+			-vet-tabs \
+			-vet-packages:tests_ayp \
+			-vet-using-param \
+			-vet-using-stmt \
+			-warnings-as-errors \
+			-target:"${target}" ||
+			return 1
 	done
 }
 
@@ -81,6 +106,7 @@ if [[ "${watch}" == true ]]; then
 		--clear \
 		--exts odin \
 		--watch ./src \
+		--watch ./tests \
 		--watch ../beetpx-odin/beetpx \
 		-- ./scripts/check.sh
 fi
