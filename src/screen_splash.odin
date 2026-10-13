@@ -10,17 +10,17 @@ Screen_Splash :: struct {
 }
 
 screen_splash_enter :: proc() -> Screen_Splash {
-	bpx.start_playback_looped(sounds.music_base)
-	playback_ids.melody = bpx.start_playback_looped(
-		sounds.music_melody,
+	bpx.play_audio_clip_looped(audio_clips.music_base)
+	sounds.melody = bpx.play_audio_clip_looped(
+		audio_clips.music_melody,
 		mute_on_start = true,
 	)
-	playback_ids.mode_no_coins = bpx.start_playback_looped(
-		sounds.music_mode_no_coins,
+	sounds.mode_no_coins = bpx.play_audio_clip_looped(
+		audio_clips.music_mode_no_coins,
 		mute_on_start = true,
 	)
-	playback_ids.mode_no_memories = bpx.start_playback_looped(
-		sounds.music_mode_no_memories,
+	sounds.mode_no_memories = bpx.play_audio_clip_looped(
+		audio_clips.music_mode_no_memories,
 		mute_on_start = true,
 	)
 

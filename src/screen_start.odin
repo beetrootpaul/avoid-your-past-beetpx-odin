@@ -7,9 +7,9 @@ import "beetpx:bpxd"
 Screen_Start :: struct {}
 
 screen_start_enter :: proc() -> Screen_Start {
-	bpx.mute_playback(playback_ids.melody)
-	bpx.mute_playback(playback_ids.mode_no_coins)
-	bpx.mute_playback(playback_ids.mode_no_memories)
+	bpx.mute_sound(sounds.melody)
+	bpx.mute_sound(sounds.mode_no_coins)
+	bpx.mute_sound(sounds.mode_no_memories)
 
 	return {}
 }

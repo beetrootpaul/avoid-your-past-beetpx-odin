@@ -7,7 +7,7 @@ import "beetpx:bpxd"
 _curr_screen: Screen
 
 main :: proc() {
-	sounds_load()
+	audio_clips_load()
 	_curr_screen = screen_splash_enter()
 
 	bpx.set_on_update(_on_update)
