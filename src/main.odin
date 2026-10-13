@@ -21,7 +21,7 @@ _on_update :: proc() {
 	case Screen_Splash:
 		next_screen = screen_splash_update(&s)
 	case Screen_Start:
-		next_screen = screen_start_update()
+		next_screen = screen_start_update(&s)
 	}
 	_curr_screen = next_screen.? or_else _curr_screen
 }
@@ -34,8 +34,11 @@ _on_draw :: proc() {
 	case Screen_Splash:
 		screen_splash_draw(s)
 	case Screen_Start:
-		screen_start_draw()
+		screen_start_draw(s)
 	}
+
+	// Frees what was allocated with `context.temp_allocator` during this frame.
+	free_all(context.temp_allocator)
 }
 
 // TODO: Introduce tracking memory allocator?
