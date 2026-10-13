@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-exec "$(dirname "${BASH_SOURCE[0]}")/beetpx.sh" format "$@"
+cd "$(dirname "${BASH_SOURCE[0]}")/.."
+
+echo "Formatting './src' ..."
+odinfmt -w ./src
