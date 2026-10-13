@@ -11,6 +11,9 @@
 
 `<target>` is `js_wasm32` (web) or `darwin_arm64` (macOS).
 
+Add `--track-memory` to print the memory in use whenever it changes and, on
+macOS, the leaks on exit.
+
 The scripts work from any directory.
 
 BeetPx repo has to be cloned next to this one, as `../beetpx-odin/`.

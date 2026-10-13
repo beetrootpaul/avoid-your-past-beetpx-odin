@@ -37,5 +37,3 @@ _on_draw :: proc() {
 		screen_start_draw()
 	}
 }
-
-// TODO: Introduce tracking memory allocator?

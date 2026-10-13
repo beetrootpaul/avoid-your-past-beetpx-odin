@@ -12,13 +12,27 @@ targets=(
 	js_wasm32
 )
 
-usage="Usage: $0 <target>"
+usage="Usage: $0 <target> [--track-memory]"
 
-if [[ $# -ne 1 ]]; then
+positional_args=()
+track_memory=false
+for arg in "$@"; do
+	case "${arg}" in
+	--track-memory) track_memory=true ;;
+	--*)
+		echo "Unknown option: '${arg}'." >&2
+		echo "${usage}" >&2
+		exit 1
+		;;
+	*) positional_args+=("${arg}") ;;
+	esac
+done
+
+if [[ ${#positional_args[@]} -ne 1 ]]; then
 	echo "${usage}" >&2
 	exit 1
 fi
-target="$1"
+target="${positional_args[0]}"
 
 # Params:
 #   $1 - the actual value
@@ -48,6 +62,12 @@ odin_flags=(
 	-disable-non-constant-globals
 	-target:"${target}"
 )
+
+# Prints the memory in use whenever it changes, and the leaks on app exit. See
+# `_TRACK_MEMORY` in BeetPx.
+if [[ "${track_memory}" == true ]]; then
+	odin_flags+=(-define:BPX_TRACK_MEMORY=true)
+fi
 
 case "${target}" in
 darwin_arm64)
