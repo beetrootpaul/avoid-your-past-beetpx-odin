@@ -23,7 +23,11 @@ screen_splash_update :: proc(s: ^Screen_Splash) -> Maybe(Screen) {
 	if bpx.key_was_just_pressed(.Left) ||
 	   bpx.key_was_just_pressed(.Right) ||
 	   bpx.key_was_just_pressed(.Up) ||
-	   bpx.key_was_just_pressed(.Down) {
+	   bpx.key_was_just_pressed(.Down) ||
+	   bpx.gamepad_button_was_just_pressed(.Dpad_Left) ||
+	   bpx.gamepad_button_was_just_pressed(.Dpad_Right) ||
+	   bpx.gamepad_button_was_just_pressed(.Dpad_Up) ||
+	   bpx.gamepad_button_was_just_pressed(.Dpad_Down) {
 		gui.sash_collapse(&s._sash)
 	}
 
