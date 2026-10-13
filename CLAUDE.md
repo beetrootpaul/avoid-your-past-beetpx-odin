@@ -14,7 +14,7 @@ That being said, a very important rule: you do **not** modify the repo history o
 
 User is the sole reposnisble person for managing the commits, switching between jj changes/revisions, pushing the changes to `origin`, etc. Users wants a complete control over the VCS.
 
-The one exception is Claude Code on the web, i.e. when the `CLAUDE_CODE_REMOTE` env var is `true`. There, commit your work in small steps and push it to your own `claude/...` branch. Never push to any other branch, and never rewrite history that is already pushed.
+The one exception is Claude Code on the web, i.e. when the `CLAUDE_CODE_REMOTE` env var is `true`. There, commit your work in small steps and push it to your own `cc/...` or `claude/...` branch. Never push to any other branch, and never rewrite history that is already pushed.
 
 If you ever write a commit message (e.g. when the user allows you to commit), look at the existing ones first and follow their convention, e.g. how short they are. Also, end it with an `Assisted-by: LLM (<model>)` trailer, where `<model>` is the exact ID of the model you run as, e.g. `Assisted-by: LLM (claude-opus-5-5)`. Do not add `Co-Authored-By:` or `Claude-Session:` lines.
 

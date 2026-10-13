@@ -10,7 +10,7 @@ Screen_Splash :: struct {
 
 screen_splash_enter :: proc() -> Screen_Splash {
 	return {
-		_sash = gui.sash_make(8 * g.MUSIC_BEAT_FRAMES),
+		_sash = gui.sash_make(duration = 8 * g.MUSIC_BEAT_FRAMES),
 	}
 }
 
