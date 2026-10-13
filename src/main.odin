@@ -38,6 +38,8 @@ _on_draw :: proc() {
 	}
 
 	// Frees what was allocated with `context.temp_allocator` during this frame.
+	//
+	// TODO: Consider BeetPx doing it on its own, after each frame.
 	free_all(context.temp_allocator)
 }
 
