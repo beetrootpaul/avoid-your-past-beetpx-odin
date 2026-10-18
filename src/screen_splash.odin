@@ -22,6 +22,6 @@ screen_splash_update :: proc(s: ^Screen_Splash) -> Maybe(Screen) {
 }
 
 screen_splash_draw :: proc(s: Screen_Splash) {
-	bpxd.rect_filled({0, 0}, g.SCREEN_SIZE, g.COLOR_BG_MODE_NORMAL)
+	bpxd.rect_filled(g.CAMERA_XY, g.SCREEN_WH, g.COLOR_BG_MODE_NORMAL)
 	gui.sash_draw(s._sash)
 }

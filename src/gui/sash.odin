@@ -25,9 +25,12 @@ sash_has_collapsed :: proc(s: Sash) -> bool {
 
 sash_draw :: proc(s: Sash) {
 	if bpx.timer_has_finished(s._timer) do return
+
+	center := g.CAMERA_XY + (g.SCREEN_WH / 2)
+	h := _H_MAX
 	bpxd.rect_filled(
-		{0, g.SCREEN_SIZE.y / 2 - _H_MAX / 2},
-		{g.SCREEN_SIZE.x, _H_MAX},
+		{0, center.y - h / 2},
+		{g.SCREEN_WH.x, h},
 		bpx.p_pico8_moss,
 	)
 }

@@ -2,6 +2,7 @@ package ayp
 
 import "beetpx:bpx"
 import "beetpx:bpxd"
+import "./g"
 
 @(private = "file")
 _curr_screen: Screen
@@ -9,6 +10,7 @@ _curr_screen: Screen
 main :: proc() {
 	_curr_screen = screen_splash_enter()
 
+	bpxd.set_camera_xy(g.CAMERA_XY)
 	bpx.set_on_update(_on_update)
 	bpx.set_on_draw(_on_draw)
 	bpx.start(canvas_size = .Square_128, tick_rate = .Hz_30)

@@ -1,7 +1,6 @@
 package ayp
 
-import "./g"
-import "beetpx:bpxd"
+import "./gui"
 
 Screen_Start :: struct {}
 
@@ -14,5 +13,8 @@ screen_start_update :: proc() -> Maybe(Screen) {
 }
 
 screen_start_draw :: proc() {
-	bpxd.rect_filled(g.GAME_AREA_XY, g.GAME_AREA_SIZE, g.COLOR_BG_MODE_NORMAL)
+	level_draw_bg()
+	level_draw_items()
+	player_draw()
+	gui.topbar_draw()
 }
