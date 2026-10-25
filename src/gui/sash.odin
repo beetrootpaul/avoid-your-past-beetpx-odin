@@ -23,6 +23,10 @@ sash_has_collapsed :: proc(s: Sash) -> bool {
 	return bpx.timer_has_finished(s._timer)
 }
 
+sash_collapse :: proc(s: ^Sash) {
+	bpx.timer_force_finish(&s._timer)
+}
+
 sash_draw :: proc(s: Sash) {
 	if bpx.timer_has_finished(s._timer) do return
 

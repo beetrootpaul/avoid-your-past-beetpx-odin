@@ -2,6 +2,7 @@ package ayp
 
 import "./g"
 import "./gui"
+import "beetpx:bpx"
 import "beetpx:bpxd"
 
 Screen_Splash :: struct {
@@ -18,6 +19,11 @@ screen_splash_update :: proc(s: ^Screen_Splash) -> Maybe(Screen) {
 	if gui.sash_has_collapsed(s._sash) {
 		return screen_start_enter()
 	}
+
+	if bpx.just_pressed() != {} {
+		gui.sash_collapse(&s._sash)
+	}
+
 	return nil
 }
 
