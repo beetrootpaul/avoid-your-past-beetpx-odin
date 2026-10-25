@@ -8,7 +8,7 @@ screen_start_enter :: proc() -> Screen_Start {
 	return {}
 }
 
-screen_start_update :: proc() -> Maybe(Screen) {
+screen_start_tick :: proc() -> Maybe(Screen) {
 	return nil
 }
 

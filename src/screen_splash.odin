@@ -15,7 +15,7 @@ screen_splash_enter :: proc() -> Screen_Splash {
 	}
 }
 
-screen_splash_update :: proc(s: ^Screen_Splash) -> Maybe(Screen) {
+screen_splash_tick :: proc(s: ^Screen_Splash) -> Maybe(Screen) {
 	if gui.sash_has_collapsed(s._sash) {
 		return screen_start_enter()
 	}

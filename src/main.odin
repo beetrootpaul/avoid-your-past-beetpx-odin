@@ -1,8 +1,8 @@
 package ayp
 
+import "./g"
 import "beetpx:bpx"
 import "beetpx:bpxd"
-import "./g"
 
 @(private = "file")
 _curr_screen: Screen
@@ -11,19 +11,19 @@ main :: proc() {
 	_curr_screen = screen_splash_enter()
 
 	bpxd.set_camera_xy(g.CAMERA_XY)
-	bpx.set_on_update(_on_update)
+	bpx.set_on_tick(_on_tick)
 	bpx.set_on_draw(_on_draw)
 	bpx.start(canvas_size = .Square_128, tick_rate = .Hz_30)
 }
 
 @(private = "file")
-_on_update :: proc() {
+_on_tick :: proc() {
 	next_screen: Maybe(Screen)
 	switch &s in _curr_screen {
 	case Screen_Splash:
-		next_screen = screen_splash_update(&s)
+		next_screen = screen_splash_tick(&s)
 	case Screen_Start:
-		next_screen = screen_start_update()
+		next_screen = screen_start_tick()
 	}
 	_curr_screen = next_screen.? or_else _curr_screen
 }
