@@ -53,6 +53,7 @@ case "${target}" in
 darwin_arm64)
 	rm -rf ./build/macos/
 	mkdir -p ./build/macos/
+	cp -R ./assets/. ./build/macos/
 
 	odin run ./src \
 		"${odin_flags[@]}" \
@@ -69,6 +70,7 @@ js_wasm32)
 	cp "$(odin root)/core/sys/wasm/js/odin.js" ./build/web/odin.js
 	cp ../beetpx-odin/beetpx/beetpx.js ./build/web/beetpx.js
 	cp ./index.html ./build/web/index.html
+	cp -R ./assets/. ./build/web/
 
 	echo "Serving ./build/web/ at http://127.0.0.1:8000 ..."
 	# TODO: Make it no longer require python3 (Odin 1.0 is supposed to include

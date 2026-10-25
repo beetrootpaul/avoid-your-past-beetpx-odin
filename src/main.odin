@@ -13,7 +13,11 @@ main :: proc() {
 	bpxd.set_camera_xy(g.CAMERA_XY)
 	bpx.set_on_tick(_on_tick)
 	bpx.set_on_draw(_on_draw)
-	bpx.start(canvas_size = .Square_128, tick_rate = .Hz_30)
+	bpx.start(
+		canvas_size = .Square_128,
+		tick_rate = .Hz_30,
+		assets = {g.ASSETS_SPRITESHEET},
+	)
 }
 
 @(private = "file")
@@ -36,7 +40,7 @@ _on_draw :: proc() {
 	case Screen_Splash:
 		screen_splash_draw(s)
 	case Screen_Start:
-		screen_start_draw()
+		screen_start_draw(s)
 	}
 }
 

@@ -8,5 +8,5 @@ level_draw_bg :: proc() {
 }
 
 level_draw_items :: proc() {
-
+	// TODO: Do something here or remove the proc.
 }

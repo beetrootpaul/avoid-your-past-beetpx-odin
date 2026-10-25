@@ -12,3 +12,6 @@ GAME_AREA_WH :: bpx.Xy{128, 112}
 MUSIC_BEAT_FRAMES :: 16
 
 COLOR_BG_MODE_NORMAL :: bpx.p_pico8_storm
+
+ASSETS_SPRITESHEET         :: "spritesheet.png"
+ASSETS_SPRITESHEET_CELL_WH :: bpx.Xy_Int{8, 8}
